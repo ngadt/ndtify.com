@@ -5,6 +5,7 @@
 export const PROJECTS = [
   {
     slug: 'lithaco',
+    performance: 'Google PageSpeed 95–100',
     name: 'LITHACO',
     domain: 'lithaco.com',
     url: 'https://lithaco.com/',
@@ -96,6 +97,7 @@ export const PROJECTS = [
   },
   {
     slug: 'keb-vietnam',
+    performance: 'Google PageSpeed 95–100',
     name: 'KEB Vietnam',
     domain: 'keb.com.vn',
     url: 'https://keb.com.vn/',
@@ -272,28 +274,44 @@ export const HUBSTOCK = {
   summary:
     'Our own Shopify app. One master store owns the stock and every connected store mirrors it in real time, including inventory, products and orders.',
   image: { src: '/images/hubstock/promo.webp', sm: '/images/hubstock/promo-sm.webp', alt: 'HubStock promo: one master store keeping three connected Shopify stores in sync' },
+  // Mirrors the in-app Billing page exactly. Destination stores are free (covered by the master store's plan).
+  everyPlan: [
+    'Real-time inventory sync from your master store',
+    'Product and category metafields, including their definitions',
+    'Auto-match and link products that already exist on a store',
+    'Unlimited order sync, cancellations restocked automatically',
+    'Per-store control over which product fields sync',
+  ],
+  alsoIncluded: [
+    'Review or hand-pick every match before products are linked, and unlink any time',
+    'Map each destination location to a master location',
+    'Inventory History log of every stock movement',
+    'Catalog Scan & Repair for anything that drifted',
+    'System health page flagging syncs that need attention',
+  ],
   plans: [
-    {
-      name: 'Free',
-      price: '0',
-      note: 'For destination stores',
-      features: ['Covered by the master store’s plan'],
-    },
     {
       name: 'Starter',
       price: '24',
-      features: ['Up to 5 connected stores', '300 products · 1,500 variants', '5 mapped locations per store', '25,000 History entries'],
+      tagline: 'For a master store and a couple of destination stores',
+      limits: ['Up to 5 connected stores', '300 products · 1,500 variants', '5 mapped locations per store', '25,000 Inventory History entries'],
+      extras: ['Email & live chat support'],
     },
     {
       name: 'Growth',
       price: '47',
       featured: true,
-      features: ['Up to 10 connected stores', '1,500 products · 7,500 variants', '10 mapped locations per store', '150,000 History entries'],
+      tagline: 'For growing brands running several storefronts',
+      limits: ['Up to 10 connected stores', '1,500 products · 7,500 variants', '10 mapped locations per store', '150,000 Inventory History entries'],
+      extras: ['Priority support'],
     },
     {
       name: 'Scale',
       price: '79',
-      features: ['Up to 25 connected stores', '5,000 products · 25,000 variants', '25 mapped locations per store', '750,000 History entries'],
+      tagline: 'For multi-brand operators with many stores',
+      limits: ['Up to 25 connected stores', '5,000 products · 25,000 variants', '25 mapped locations per store', '750,000 Inventory History entries'],
+      extras: ['Priority support', 'Guided setup for new stores'],
     },
   ],
+  enterprise: 'Enterprise plans come with custom store, product and order volumes, plus a dedicated onboarding session.',
 };

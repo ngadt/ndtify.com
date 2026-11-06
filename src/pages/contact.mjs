@@ -126,7 +126,7 @@ export function contact() {
 
             <div class="form-foot">
               <button type="submit" class="btn btn-primary btn-lg" id="cfSubmit">Send request</button>
-              <p class="form-note">We only use your details to reply to this request.</p>
+              <p class="form-note">We only use your details to reply to this request. <a href="/privacy/">Privacy policy</a></p>
             </div>
           </form>
         </div>

@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- Source for /images/hero-mockup.webp. Render at 1200x900:
-     laptop.webp = desktop screenshot (Ba Phong farm), phone.webp = 390px mobile screenshot (KEB Vietnam). -->
+<!-- Source for /images/hero-mockup.webp: an illustrated laptop + phone in the brand palette (no real client screenshots,
+     so it never clashes with the hero colours). Render with: node render.cjs <puppeteer-dir> <this-dir> -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1200px; height: 900px; overflow: hidden; }
-  body { font-family: Inter, system-ui, sans-serif; position: relative; background: #0b1020; }
+  body {
+    font-family: Inter, system-ui, sans-serif; color: #0f172a; position: relative;
+    background: #0b1020;
+  }
   .bg {
     position: absolute; inset: 0;
     background:
@@ -22,46 +26,171 @@
     background-size: 48px 48px;
     -webkit-mask-image: radial-gradient(65% 65% at 50% 50%, #000, transparent);
   }
-  .glow { position: absolute; left: 180px; top: 200px; width: 840px; height: 460px; border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(99,102,241,.45), transparent); filter: blur(40px); }
+  .glow {
+    position: absolute; left: 180px; top: 200px; width: 840px; height: 460px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(99,102,241,.45), transparent);
+    filter: blur(40px);
+  }
 
-  /* Laptop */
-  .laptop { position: absolute; left: 110px; top: 118px; width: 860px; }
-  .screen { width: 860px; height: 540px; border-radius: 22px 22px 0 0; background: #0f1225; padding: 14px 14px 0;
-    box-shadow: 0 40px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08); position: relative; }
-  .screen::before { content: ""; position: absolute; top: 5px; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #1e2340; transform: translateX(-50%); }
-  .display { width: 100%; height: 100%; border-radius: 10px 10px 0 0; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
-  .base { height: 22px; background: linear-gradient(#2a2f4f, #171b33); border-radius: 0 0 24px 24px; position: relative; box-shadow: 0 30px 50px -20px rgba(0,0,0,.8); }
-  .base::before { content: ""; position: absolute; left: 50%; top: 0; width: 140px; height: 6px; transform: translateX(-50%); background: #0b0e1c; border-radius: 0 0 8px 8px; }
-  .chrome { flex: none; height: 30px; background: #f3f4f8; border-bottom: 1px solid #e6e8f0; display: flex; align-items: center; padding: 0 12px; gap: 6px; }
+  /* ---------- Laptop ---------- */
+  .laptop {
+    position: absolute; left: 110px; top: 118px; width: 860px;
+  }
+  .screen {
+    width: 860px; height: 540px; border-radius: 22px 22px 0 0;
+    background: #0f1225; padding: 14px 14px 0;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08);
+    position: relative;
+  }
+  .screen::before {
+    content: ""; position: absolute; top: 5px; left: 50%; width: 6px; height: 6px; border-radius: 50%;
+    background: #1e2340; transform: translateX(-50%);
+  }
+  .display {
+    width: 100%; height: 100%; border-radius: 10px 10px 0 0; overflow: hidden; background: #fff;
+  }
+  .base {
+    height: 22px; background: linear-gradient(#2a2f4f, #171b33); border-radius: 0 0 24px 24px;
+    position: relative; box-shadow: 0 30px 50px -20px rgba(0,0,0,.8);
+  }
+  .base::before {
+    content: ""; position: absolute; left: 50%; top: 0; width: 140px; height: 6px; transform: translateX(-50%);
+    background: #0b0e1c; border-radius: 0 0 8px 8px;
+  }
+
+  /* fake browser */
+  .chrome { height: 34px; background: #f3f4f8; border-bottom: 1px solid #e6e8f0; display: flex; align-items: center; padding: 0 14px; gap: 6px; }
   .chrome i { width: 9px; height: 9px; border-radius: 50%; display: block; }
-  .chrome .url { margin-left: 12px; width: 260px; height: 18px; border-radius: 6px; background: #fff; border: 1px solid #e6e8f0; font-size: 9.5px; color: #64748b; display: flex; align-items: center; padding-left: 8px; }
-  .shot { flex: 1; min-height: 0; background: url(laptop.webp) center top / cover no-repeat; }
+  .chrome .url { margin-left: 14px; flex: 1; height: 18px; border-radius: 6px; background: #fff; border: 1px solid #e6e8f0; font-size: 9px; color: #64748b; display: flex; align-items: center; padding-left: 8px; }
 
-  /* Phone */
-  .phone { position: absolute; right: 118px; bottom: 96px; width: 214px; height: 440px; border-radius: 34px; background: #0f1225; padding: 10px;
-    box-shadow: 0 50px 80px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1), inset 0 0 0 2px #1e2340; transform: rotate(-4deg); }
-  .phone::before { content: ""; position: absolute; top: 16px; left: 50%; width: 64px; height: 18px; border-radius: 999px; background: #0f1225; transform: translateX(-50%); z-index: 2; }
-  .pscreen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #fff url(phone.webp) center top / 100% auto no-repeat; position: relative; }
-  .pscreen::before { content: ""; display: block; height: 30px; background: #fff; } /* status-bar strip */
-  .pscreen { background-position: center 30px; }
+  /* fake site */
+  .site { padding: 0; }
+  .nav { height: 46px; display: flex; align-items: center; padding: 0 28px; gap: 18px; border-bottom: 1px solid #eef0f5; }
+  .logo { display: flex; align-items: center; gap: 7px; font-weight: 800; font-size: 12px; }
+  .logo b { width: 18px; height: 18px; border-radius: 5px; background: linear-gradient(135deg,#6366f1,#22d3ee); display: block; }
+  .nav .links { display: flex; gap: 14px; margin-left: 18px; }
+  .nav .links span { width: 38px; height: 6px; border-radius: 3px; background: #dfe3ee; display: block; }
+  .nav .cta { margin-left: auto; height: 22px; padding: 0 12px; border-radius: 999px; background: linear-gradient(135deg,#6366f1,#22d3ee); color: #fff; font-size: 9px; font-weight: 700; display: flex; align-items: center; }
+
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; padding: 32px 28px 26px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 5px; height: 16px; padding: 0 8px; border-radius: 999px; background: #eef0ff; color: #4f46e5; font-size: 7.5px; font-weight: 700; margin-bottom: 10px; }
+  .pill i { width: 5px; height: 5px; border-radius: 50%; background: #22d3ee; }
+  .h1 { font-size: 25px; font-weight: 800; letter-spacing: -.02em; line-height: 1.12; }
+  .h1 span { background: linear-gradient(135deg,#6366f1,#22d3ee); -webkit-background-clip: text; color: transparent; }
+  .lines { margin-top: 10px; display: grid; gap: 5px; }
+  .lines span { height: 6px; border-radius: 3px; background: #e6e8f0; display: block; }
+  .btns { display: flex; gap: 8px; margin-top: 14px; }
+  .btns span { height: 24px; padding: 0 14px; border-radius: 999px; font-size: 8.5px; font-weight: 700; display: flex; align-items: center; }
+  .btns .p { background: linear-gradient(135deg,#6366f1,#22d3ee); color: #fff; box-shadow: 0 6px 14px -6px rgba(79,70,229,.6); }
+  .btns .o { border: 1px solid #e6e8f0; color: #0f172a; }
+  .art { height: 190px; border-radius: 12px; background: linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#22d3ee 100%); position: relative; overflow: hidden; }
+  .art::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px); background-size: 22px 22px; }
+  .art .card { position: absolute; background: #fff; border-radius: 8px; box-shadow: 0 10px 24px -10px rgba(0,0,0,.4); padding: 8px; }
+  .art .c1 { left: 18px; top: 18px; width: 120px; }
+  .art .c2 { right: 18px; bottom: 16px; width: 150px; }
+  .art .card em { display: block; height: 5px; border-radius: 3px; background: #e6e8f0; margin-top: 5px; }
+  .art .card em.t { width: 60%; background: #0f172a; height: 6px; margin-top: 0; }
+  .art .bar { display: flex; gap: 4px; align-items: flex-end; height: 34px; margin-top: 8px; }
+  .art .bar b { flex: 1; border-radius: 2px 2px 0 0; background: linear-gradient(#6366f1,#22d3ee); display: block; }
+
+  .grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; padding: 4px 28px 28px; }
+  .pc { border: 1px solid #eef0f5; border-radius: 10px; overflow: hidden; background: #fff; }
+  .pc .img { height: 86px; position: relative; }
+  .pc .img i { position: absolute; top: 6px; left: 6px; height: 12px; padding: 0 6px; border-radius: 999px; background: rgba(255,255,255,.92); font-size: 6.5px; font-weight: 700; display: flex; align-items: center; }
+  .pc .body { padding: 8px 9px 9px; }
+  .pc .body em { display: block; height: 5px; border-radius: 3px; background: #e6e8f0; margin-top: 4px; width: 90%; }
+  .pc .body em.t { background: #0f172a; height: 6px; width: 70%; margin-top: 0; }
+  .pc .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; padding-top: 6px; border-top: 1px solid #eef0f5; font-size: 7.5px; font-weight: 700; color: #64748b; }
+  .pc .foot span { height: 14px; padding: 0 7px; border-radius: 999px; background: linear-gradient(135deg,#6366f1,#22d3ee); color: #fff; font-size: 6.5px; font-weight: 700; display: flex; align-items: center; }
+
+  /* ---------- Phone ---------- */
+  .phone {
+    position: absolute; right: 118px; bottom: 96px; width: 214px; height: 440px;
+    border-radius: 34px; background: #0f1225; padding: 10px;
+    box-shadow: 0 50px 80px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1), inset 0 0 0 2px #1e2340;
+    transform: rotate(-4deg);
+  }
+  .phone::before { content: ""; position: absolute; top: 16px; left: 50%; width: 70px; height: 18px; border-radius: 999px; background: #0f1225; transform: translateX(-50%); z-index: 2; }
+  .pscreen { width: 100%; height: 100%; border-radius: 26px; background: #fff; overflow: hidden; }
+  .pnav { height: 54px; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 16px 8px; }
+  .pnav .logo { font-size: 10px; }
+  .pnav .ic { width: 14px; height: 10px; display: grid; gap: 2px; }
+  .pnav .ic i { height: 2px; background: #0f172a; border-radius: 1px; display: block; }
+  .psearch { margin: 4px 14px 10px; height: 26px; border-radius: 999px; background: #f3f4f8; display: flex; align-items: center; padding: 0 10px; font-size: 7.5px; color: #64748b; }
+  .ptabs { display: flex; gap: 6px; padding: 0 14px 10px; }
+  .ptabs span { height: 18px; padding: 0 9px; border-radius: 999px; border: 1px solid #e6e8f0; font-size: 7px; font-weight: 600; display: flex; align-items: center; color: #334155; }
+  .ptabs span.on { background: #0f172a; color: #fff; border-color: #0f172a; }
+  .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 14px; }
+  .pgrid .pc .img { height: 56px; }
+  .pgrid .pc .body { padding: 6px 7px 7px; }
+  .pgrid .pc .foot { font-size: 7px; margin-top: 6px; padding-top: 5px; }
+  .pbar { position: absolute; left: 10px; right: 10px; bottom: 10px; height: 44px; border-radius: 0 0 26px 26px; background: #fff; border-top: 1px solid #eef0f5; display: flex; justify-content: space-around; align-items: center; }
+  .pbar i { width: 12px; height: 12px; border-radius: 4px; background: #dfe3ee; display: block; }
+  .pbar i.on { background: linear-gradient(135deg,#6366f1,#22d3ee); }
+
+  /* gradients for product images */
+  .g1 { background: linear-gradient(135deg,#6366f1,#a855f7); }
+  .g2 { background: linear-gradient(135deg,#f97316,#ef4444); }
+  .g3 { background: linear-gradient(135deg,#14b8a6,#0ea5e9); }
+  .g4 { background: linear-gradient(135deg,#0f172a,#7c3aed); }
+  .g5 { background: linear-gradient(135deg,#22c55e,#0ea5e9); }
+  .g6 { background: linear-gradient(135deg,#8b5cf6,#ec4899); }
 </style>
 </head>
 <body>
   <div class="bg"></div>
   <div class="glow"></div>
+
   <div class="laptop">
     <div class="screen">
       <div class="display">
         <div class="chrome">
           <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
-          <div class="url">🔒 vuondautambaphong.com</div>
+          <div class="url">🔒 yourbusiness.com</div>
         </div>
-        <div class="shot"></div>
+        <div class="site">
+          <div class="nav">
+            <div class="logo"><b></b>Brand</div>
+            <div class="links"><span></span><span></span><span></span><span></span></div>
+            <div class="cta">Get a quote</div>
+          </div>
+          <div class="hero">
+            <div>
+              <div class="pill"><i></i> Custom build by NDTify</div>
+              <div class="h1">Built for the way<br><span>your customers buy</span></div>
+              <div class="lines"><span style="width:95%"></span><span style="width:80%"></span><span style="width:60%"></span></div>
+              <div class="btns"><span class="p">Book a visit</span><span class="o">See projects</span></div>
+            </div>
+            <div class="art">
+              <div class="card c1"><em class="t"></em><em></em><em style="width:70%"></em><div class="bar"><b style="height:40%"></b><b style="height:65%"></b><b style="height:50%"></b><b style="height:90%"></b><b style="height:70%"></b><b style="height:100%"></b></div></div>
+              <div class="card c2"><em class="t" style="width:45%"></em><em></em><em style="width:85%"></em><em style="width:60%"></em></div>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="pc"><div class="img g1"><i>Website</i></div><div class="body"><em class="t"></em><em></em><em style="width:60%"></em><div class="foot">WordPress<span>View</span></div></div></div>
+            <div class="pc"><div class="img g2"><i>Web app</i></div><div class="body"><em class="t"></em><em></em><em style="width:60%"></em><div class="foot">Calculator<span>View</span></div></div></div>
+            <div class="pc"><div class="img g5"><i>Plugin</i></div><div class="body"><em class="t"></em><em></em><em style="width:60%"></em><div class="foot">WooCommerce<span>View</span></div></div></div>
+            <div class="pc"><div class="img g4"><i>Shopify app</i></div><div class="body"><em class="t"></em><em></em><em style="width:60%"></em><div class="foot">App Store<span>View</span></div></div></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="base"></div>
   </div>
-  <div class="phone"><div class="pscreen"></div></div>
+
+  <div class="phone">
+    <div class="pscreen">
+      <div class="pnav"><div class="logo"><b></b>Store</div><div class="ic"><i></i><i></i><i></i></div></div>
+      <div class="psearch">Search products…</div>
+      <div class="ptabs"><span class="on">All</span><span>New in</span><span>Best</span><span>Sale</span></div>
+      <div class="pgrid">
+        <div class="pc"><div class="img g1"></div><div class="body"><em class="t"></em><em></em><div class="foot">$59<span>Add</span></div></div></div>
+        <div class="pc"><div class="img g3"></div><div class="body"><em class="t"></em><em></em><div class="foot">$49<span>Add</span></div></div></div>
+        <div class="pc"><div class="img g6"></div><div class="body"><em class="t"></em><em></em><div class="foot">$29<span>Add</span></div></div></div>
+        <div class="pc"><div class="img g2"></div><div class="body"><em class="t"></em><em></em><div class="foot">$79<span>Add</span></div></div></div>
+      </div>
+    </div>
+    <div class="pbar"><i class="on"></i><i></i><i></i><i></i></div>
+  </div>
 </body>
 </html>

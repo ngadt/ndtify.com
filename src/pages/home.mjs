@@ -30,7 +30,7 @@ const SERVICES = [
 ];
 
 const FEATURES = [
-  ['⚡', 'Fast by default', 'Hand-written themes instead of heavy page builders, so pages stay light and Core Web Vitals stay green.'],
+  ['⚡', 'Fast by default', 'Hand-written themes instead of heavy page builders. lithaco.com and keb.com.vn score 95–100 on Google PageSpeed.'],
   ['🔍', 'Built to be found', 'Clean HTML, proper headings, schema markup, sitemaps and pages planned around what your customers actually search for.'],
   ['🧮', 'Tools, not just pages', 'Calculators, code lookups, filters and booking flows that answer a visitor’s question on the spot.'],
   ['🔌', 'Connects to what you use', 'Zalo, WhatsApp, Telegram, PayPal, Klaviyo, Shopify, Google Sheets, REST APIs. If it has an API, we can wire it up.'],
@@ -49,6 +49,10 @@ export const FAQ = [
   [
     'What kinds of projects do you take on?',
     'Business websites, WooCommerce stores, custom WordPress plugins, Shopify apps, and interactive web tools such as calculators, lookups and booking flows. We also connect systems together: chat apps, payment gateways, email marketing, inventory and other APIs.',
+  ],
+  [
+    'Who will I be working with?',
+    'One person: the developer who builds your project. NDTify is an independent studio, not an agency, so there are no account managers or hand-offs. You brief, review and launch with the same person throughout, and the same person supports the site afterwards.',
   ],
   [
     'How much does a project cost?',
@@ -111,20 +115,20 @@ export function home() {
             <a href="/work/" class="btn btn-outline btn-lg">See our work</a>
           </div>
           <ul class="hero-trust" aria-label="Highlights">
-            <li>✓ ${PROJECTS.length} client projects live</li>
+            <li>✓ Building for the web since 2014</li>
             <li>✓ Our own app on the Shopify App Store</li>
             <li>✓ Vietnam · Singapore · Korea</li>
           </ul>
         </div>
 
         <figure class="hero-visual">
-          <a href="/work/vuon-dau-tam-ba-phong/" aria-label="Ba Phong Mulberry Farm case study">
+          <a href="/work/" aria-label="See our work">
             <img src="/images/hero-mockup.webp" width="1200" height="900" fetchpriority="high"
-                 alt="Ba Phong Mulberry Farm website on a laptop and KEB Vietnam website on a phone, both built by NDTify">
+                 alt="Illustration of a custom website on a laptop and an online store on a phone">
           </a>
           <figcaption class="float-card float-1 float-card--app">
             <span class="score-ring" aria-hidden="true"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle cx="18" cy="18" r="15.5" class="score-ring-val"/></svg><b>95+</b></span>
-            <span class="float-card-text"><strong>Google PageSpeed 95–100</strong><span>On the sites we build</span></span>
+            <span class="float-card-text"><strong>Google PageSpeed 95–100</strong><span>Measured on lithaco.com &amp; keb.com.vn</span></span>
           </figcaption>
           <a href="/apps/hubstock/" class="float-card float-2 float-card--app">
             ${hubIcon(40)}
@@ -202,6 +206,28 @@ export function home() {
           </div>`
           ).join('\n          ')}
         </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section about bg-soft" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="kicker">About NDTify</p>
+          <h2>One developer, the whole stack</h2>
+          <p class="about-lead">NDTify is the studio name of one independent developer who has been building for the web since 2014: WordPress themes and plugins, WooCommerce and Shopify stores, custom web tools and, most recently, Shopify apps.</p>
+          <p>There are no account managers and no hand-offs. The person you brief is the person who designs, codes, launches and supports your project, which is why clients in Vietnam, Singapore and South Korea keep coming back with the next one.</p>
+          <div class="hero-cta">
+            <a href="/contact/" class="btn btn-primary">Start a project</a>
+            <a href="/work/" class="btn btn-outline-dark">See the work</a>
+          </div>
+        </div>
+        <ul class="about-stats" aria-label="NDTify at a glance">
+          <li><strong>2014</strong><span>Building for the web since</span></li>
+          <li><strong>${PROJECTS.length}</strong><span>Live client projects in 3 countries</span></li>
+          <li><strong>1</strong><span>Shopify app on the App Store</span></li>
+          <li><strong>95–100</strong><span>Google PageSpeed on lithaco.com &amp; keb.com.vn</span></li>
+        </ul>
       </div>
     </section>
 

@@ -13,11 +13,12 @@ import { services } from './src/pages/services.mjs';
 import { hubstock } from './src/pages/hubstock.mjs';
 import { notFound } from './src/pages/notfound.mjs';
 import { contact } from './src/pages/contact.mjs';
+import { privacy } from './src/pages/privacy.mjs';
 
 const OUT = join(dirname(fileURLToPath(import.meta.url)), 'public');
 const today = new Date().toISOString().slice(0, 10);
 
-const pages = [home(), services(), workIndex(), ...PROJECTS.map(caseStudy), hubstock(), contact()];
+const pages = [home(), services(), workIndex(), ...PROJECTS.map(caseStudy), hubstock(), contact(), privacy()];
 
 function write(path, html) {
   const file = path.endsWith('.html') ? join(OUT, path) : join(OUT, path, 'index.html');

@@ -2,14 +2,14 @@ import { SITE, esc, abs, breadcrumb, crumbs } from '../site.mjs';
 import { HUBSTOCK as H } from '../projects.mjs';
 
 const FEATURES = [
-  ['Real-time inventory sync', 'Stock lives on one master store. Every connected store mirrors it automatically, so two storefronts never fight over the same number.'],
-  ['Orders deduct master stock', 'An order on any connected store deducts stock on the master at the milestone you choose (paid or fulfilled). Cancellations restore it.'],
-  ['Match by SKU, no duplicates', 'Already selling on the other store? HubStock matches products by SKU, handle or title and links them instead of creating copies. Uncertain matches wait for your review.'],
-  ['Per-field product sync', 'Choose exactly what travels to each store: title, images, price, compare-at price, SKU, barcode, tags, vendor and more. Set global defaults, then override per store.'],
-  ['Metafields & definitions', 'Product and category metafields sync along with their definitions, so structured data arrives intact.'],
-  ['Location mapping', 'Map master locations to each destination store’s locations so stock lands in the right place.'],
-  ['History, scan & repair', 'Every stock movement lands in a searchable History log, and Scan & Repair plus a Health view catch anything that has drifted.'],
-  ['Low-stock alerts', 'Get notified when inventory drops below your own threshold.'],
+  ['Real-time inventory sync from your master store', 'Stock lives on the master store only. Every connected store mirrors it the moment it changes, so two storefronts never fight over the same number.'],
+  ['Unlimited order sync, cancellations restocked automatically', 'An order on any connected store deducts master stock at the milestone you choose (paid or fulfilled). A cancellation restores it, with no manual fixes.'],
+  ['Auto-match and link products that already exist on a store', 'Already selling there? HubStock matches by SKU, then handle or title, and links instead of duplicating. Review or hand-pick every match before linking, and unlink any time.'],
+  ['Per-store control over which product fields sync', 'Title, images, price, compare-at price, SKU, barcode, tags, vendor and more. Set global defaults, then override them for each destination store.'],
+  ['Product and category metafields, including their definitions', 'Metafields travel with their definitions, so structured data arrives on the connected store intact.'],
+  ['Map each destination location to a master location', 'Decide exactly which master location feeds which destination location, so stock lands where it should.'],
+  ['Inventory History log of every stock movement', 'A searchable record of every quantity change: product, SKU, before and after, location, store and the order that caused it.'],
+  ['Catalog Scan & Repair and a system health page', 'Scan & Repair catches anything that drifted and fixes it. The health page flags syncs that need attention, with low-stock alerts at your own threshold.'],
 ];
 
 const STEPS = [
@@ -22,7 +22,8 @@ const FAQ = [
   ['Which store holds the stock?', 'The master store. Destination stores mirror its inventory and are locked to it, so stock is only ever edited in one place.'],
   ['Will HubStock duplicate products that already exist on my other store?', 'No. It matches products by SKU (then handle or title) and links them. Anything uncertain waits for your review, and you can link in bulk or one product at a time with variant control.'],
   ['What happens when an order is cancelled on a connected store?', 'The stock that was deducted from the master is restored automatically, and the movement is recorded in the History log.'],
-  ['Do destination stores pay too?', 'No. Destination stores use the Free plan; they are covered by the master store’s plan.'],
+  ['Do destination stores pay too?', 'No. Only the master store is billed; every destination store is covered by the master store’s plan.'],
+  ['What if I need more than 25 stores?', 'Enterprise plans come with custom store, product and order volumes, plus a dedicated onboarding session. Contact us and we will put a quote together.'],
   ['Is there a free trial?', 'Yes. Every paid plan includes a 15-day free trial.'],
 ];
 
@@ -31,7 +32,6 @@ export function hubstock() {
     { name: 'Home', path: '/' },
     { name: 'HubStock', path: '/apps/hubstock/' },
   ];
-  const paid = H.plans.filter((p) => p.price !== '0');
   return {
     path: '/apps/hubstock/',
     title: 'HubStock: Multi-Store Sync for Shopify | NDTify',
@@ -59,8 +59,8 @@ export function hubstock() {
           '@type': 'AggregateOffer',
           priceCurrency: 'USD',
           lowPrice: '0',
-          highPrice: paid[paid.length - 1].price,
-          offerCount: H.plans.length,
+          highPrice: H.plans[H.plans.length - 1].price,
+          offerCount: H.plans.length + 1,
         },
       },
       {
@@ -149,25 +149,44 @@ export function hubstock() {
         <header class="section-head">
           <p class="kicker">Pricing</p>
           <h2>Pay on the master store only</h2>
-          <p>Destination stores are free. All paid plans include real-time inventory &amp; order sync, SKU matching, metafield sync and email &amp; live chat support.</p>
+          <p>Destination stores are free: they are covered by the master store’s plan. Every paid plan starts with a 15-day free trial.</p>
         </header>
-        <div class="grid grid-4 pricing-grid">
+        <div class="grid grid-3 pricing-grid">
           ${H.plans
             .map(
               (p) => `<div class="plan${p.featured ? ' plan--featured' : ''} reveal">
             ${p.featured ? '<span class="plan-tag">Most popular</span>' : ''}
             <h3>${esc(p.name)}</h3>
+            <p class="plan-desc">${esc(p.tagline)}</p>
             <p class="plan-price">$${p.price} <small>/ month</small></p>
-            <p class="plan-desc">${p.note ? esc(p.note) : '15-day free trial'}</p>
-            <ul class="plan-features">
-              ${p.features.map((f) => `<li>${esc(f)}</li>`).join('\n              ')}
+            <ul class="plan-features plan-features--limits">
+              ${p.limits.map((f) => `<li>${esc(f)}</li>`).join('\n              ')}
             </ul>
-            <a href="${H.appStoreUrl}" class="btn ${p.featured ? 'btn-primary' : 'btn-outline-dark'} btn-block" target="_blank" rel="noopener">Install</a>
+            <ul class="plan-features">
+              ${[...H.everyPlan, ...p.extras].map((f) => `<li>${esc(f)}</li>`).join('\n              ')}
+            </ul>
+            <a href="${H.appStoreUrl}" class="btn ${p.featured ? 'btn-primary' : 'btn-outline-dark'} btn-block" target="_blank" rel="noopener">Start 15-day free trial</a>
           </div>`
             )
             .join('\n          ')}
         </div>
-        <p class="pricing-note">Prices in USD, billed by Shopify every 30 days. Need more than 25 stores? <a href="#" data-chat-open>Contact us</a>.</p>
+
+        <div class="enterprise-band reveal">
+          <div>
+            <h3>Need more than 25 stores?</h3>
+            <p>${esc(H.enterprise)}</p>
+          </div>
+          <a href="#" class="btn btn-light" data-chat-open>Contact us for Enterprise pricing</a>
+        </div>
+
+        <div class="included-box reveal">
+          <h3>Also included on every plan</h3>
+          <ul class="plan-features plan-features--cols">
+            ${H.alsoIncluded.map((f) => `<li>${esc(f)}</li>`).join('\n            ')}
+          </ul>
+        </div>
+
+        <p class="pricing-note">Prices in USD, billed by Shopify every 30 days. <a href="https://hubstock-multi-store-sync.gadget.app/privacy" target="_blank" rel="noopener">HubStock privacy policy</a></p>
       </div>
     </section>
 

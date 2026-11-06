@@ -14,6 +14,7 @@ export const NAV = [
   { href: '/services/', label: 'Services' },
   { href: '/work/', label: 'Work' },
   { href: '/apps/hubstock/', label: 'HubStock' },
+  { href: '/#about', label: 'About' },
   { href: '/#process', label: 'Process' },
   { href: '/#faq', label: 'FAQ' },
 ];
@@ -43,7 +44,8 @@ export const ORGANIZATION = {
   logo: `${SITE.url}/images/logo.png`,
   email: SITE.email,
   description:
-    'NDTify is a web and app development studio building custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps.',
+    'NDTify is an independent web and app development studio, building custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps since 2014.',
+  foundingDate: '2014',
   sameAs: [SITE.shopifyPartner],
   contactPoint: { '@type': 'ContactPoint', contactType: 'sales', email: SITE.email, availableLanguage: ['English', 'Vietnamese'], url: `${SITE.url}/contact/` },
 };
@@ -112,7 +114,7 @@ function footer(projects) {
           ${LOGO_SVG('logoGradFoot')}
           <span>NDTify</span>
         </a>
-        <p>Independent studio building websites, web apps, WordPress plugins and Shopify apps, plus the integrations that connect them.</p>
+        <p>Independent developer building websites, web apps, WordPress plugins and Shopify apps since 2014, plus the integrations that connect them.</p>
         <address>
           <a href="mailto:${SITE.email}">${SITE.email}</a><br>
           <a href="#" data-chat-open>Live chat</a>
@@ -142,6 +144,7 @@ function footer(projects) {
         <h3>Company</h3>
         <ul>
           <li><a href="/work/">All projects</a></li>
+          <li><a href="/#about">About</a></li>
           <li><a href="/#process">How we work</a></li>
           <li><a href="/#faq">FAQ</a></li>
           <li><a href="${SITE.shopifyPartner}" rel="noopener" target="_blank">Shopify App Store</a></li>
@@ -151,7 +154,7 @@ function footer(projects) {
     </div>
 
     <div class="container footer-bottom">
-      <p>© <span id="year">2026</span> NDTify. All rights reserved.</p>
+      <p>© <span id="year">2026</span> NDTify. All rights reserved. · <a href="/privacy/">Privacy policy</a></p>
       <p>Shopify app developer · WordPress &amp; WooCommerce builds</p>
     </div>
   </footer>`;

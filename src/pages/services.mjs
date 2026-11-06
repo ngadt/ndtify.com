@@ -116,7 +116,7 @@ export function services() {
       <div class="container">
         ${crumbs(trail)}
         <h1>Services</h1>
-        <p class="lead">Websites, web apps, WordPress plugins, Shopify apps and the integrations in between. One small team, the whole stack.</p>
+        <p class="lead">Websites, web apps, WordPress plugins, Shopify apps and the integrations in between. One developer, the whole stack.</p>
         <ul class="jump-links">
           ${SERVICES.map((s) => `<li><a href="#${s.id}">${esc(s.title)}</a></li>`).join('\n          ')}
         </ul>

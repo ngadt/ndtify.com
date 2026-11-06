@@ -44,7 +44,8 @@
       "url": "https://ndtify.com/",
       "logo": "https://ndtify.com/images/logo.png",
       "email": "support@ndtify.com",
-      "description": "NDTify is a web and app development studio building custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps.",
+      "description": "NDTify is an independent web and app development studio, building custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps since 2014.",
+      "foundingDate": "2014",
       "sameAs": [
         "https://apps.shopify.com/partners/ndtify"
       ],
@@ -93,14 +94,14 @@
       ],
       "description": "Our own Shopify app. One master store owns the stock and every connected store mirrors it in real time, including inventory, products and orders.",
       "featureList": [
-        "Real-time inventory sync",
-        "Orders deduct master stock",
-        "Match by SKU, no duplicates",
-        "Per-field product sync",
-        "Metafields & definitions",
-        "Location mapping",
-        "History, scan & repair",
-        "Low-stock alerts"
+        "Real-time inventory sync from your master store",
+        "Unlimited order sync, cancellations restocked automatically",
+        "Auto-match and link products that already exist on a store",
+        "Per-store control over which product fields sync",
+        "Product and category metafields, including their definitions",
+        "Map each destination location to a master location",
+        "Inventory History log of every stock movement",
+        "Catalog Scan & Repair and a system health page"
       ],
       "publisher": {
         "@id": "https://ndtify.com/#organization"
@@ -145,7 +146,15 @@
           "name": "Do destination stores pay too?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Destination stores use the Free plan; they are covered by the master store’s plan."
+            "text": "No. Only the master store is billed; every destination store is covered by the master store’s plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I need more than 25 stores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enterprise plans come with custom store, product and order volumes, plus a dedicated onboarding session. Contact us and we will put a quote together."
           }
         },
         {
@@ -182,6 +191,7 @@
           <li><a href="/services/">Services</a></li>
           <li><a href="/work/">Work</a></li>
           <li><a href="/apps/hubstock/" aria-current="page" class="is-active">HubStock</a></li>
+          <li><a href="/#about">About</a></li>
           <li><a href="/#process">Process</a></li>
           <li><a href="/#faq">FAQ</a></li>
         </ul>
@@ -258,36 +268,36 @@
         </header>
         <div class="grid grid-4">
           <div class="feature feature--card reveal">
-            <h3>Real-time inventory sync</h3>
-            <p>Stock lives on one master store. Every connected store mirrors it automatically, so two storefronts never fight over the same number.</p>
+            <h3>Real-time inventory sync from your master store</h3>
+            <p>Stock lives on the master store only. Every connected store mirrors it the moment it changes, so two storefronts never fight over the same number.</p>
           </div>
           <div class="feature feature--card reveal">
-            <h3>Orders deduct master stock</h3>
-            <p>An order on any connected store deducts stock on the master at the milestone you choose (paid or fulfilled). Cancellations restore it.</p>
+            <h3>Unlimited order sync, cancellations restocked automatically</h3>
+            <p>An order on any connected store deducts master stock at the milestone you choose (paid or fulfilled). A cancellation restores it, with no manual fixes.</p>
           </div>
           <div class="feature feature--card reveal">
-            <h3>Match by SKU, no duplicates</h3>
-            <p>Already selling on the other store? HubStock matches products by SKU, handle or title and links them instead of creating copies. Uncertain matches wait for your review.</p>
+            <h3>Auto-match and link products that already exist on a store</h3>
+            <p>Already selling there? HubStock matches by SKU, then handle or title, and links instead of duplicating. Review or hand-pick every match before linking, and unlink any time.</p>
           </div>
           <div class="feature feature--card reveal">
-            <h3>Per-field product sync</h3>
-            <p>Choose exactly what travels to each store: title, images, price, compare-at price, SKU, barcode, tags, vendor and more. Set global defaults, then override per store.</p>
+            <h3>Per-store control over which product fields sync</h3>
+            <p>Title, images, price, compare-at price, SKU, barcode, tags, vendor and more. Set global defaults, then override them for each destination store.</p>
           </div>
           <div class="feature feature--card reveal">
-            <h3>Metafields &amp; definitions</h3>
-            <p>Product and category metafields sync along with their definitions, so structured data arrives intact.</p>
+            <h3>Product and category metafields, including their definitions</h3>
+            <p>Metafields travel with their definitions, so structured data arrives on the connected store intact.</p>
           </div>
           <div class="feature feature--card reveal">
-            <h3>Location mapping</h3>
-            <p>Map master locations to each destination store’s locations so stock lands in the right place.</p>
+            <h3>Map each destination location to a master location</h3>
+            <p>Decide exactly which master location feeds which destination location, so stock lands where it should.</p>
           </div>
           <div class="feature feature--card reveal">
-            <h3>History, scan &amp; repair</h3>
-            <p>Every stock movement lands in a searchable History log, and Scan &amp; Repair plus a Health view catch anything that has drifted.</p>
+            <h3>Inventory History log of every stock movement</h3>
+            <p>A searchable record of every quantity change: product, SKU, before and after, location, store and the order that caused it.</p>
           </div>
           <div class="feature feature--card reveal">
-            <h3>Low-stock alerts</h3>
-            <p>Get notified when inventory drops below your own threshold.</p>
+            <h3>Catalog Scan &amp; Repair and a system health page</h3>
+            <p>Scan &amp; Repair catches anything that drifted and fixes it. The health page flags syncs that need attention, with low-stock alerts at your own threshold.</p>
           </div>
         </div>
       </div>
@@ -312,60 +322,95 @@
         <header class="section-head">
           <p class="kicker">Pricing</p>
           <h2>Pay on the master store only</h2>
-          <p>Destination stores are free. All paid plans include real-time inventory &amp; order sync, SKU matching, metafield sync and email &amp; live chat support.</p>
+          <p>Destination stores are free: they are covered by the master store’s plan. Every paid plan starts with a 15-day free trial.</p>
         </header>
-        <div class="grid grid-4 pricing-grid">
-          <div class="plan reveal">
-            
-            <h3>Free</h3>
-            <p class="plan-price">$0 <small>/ month</small></p>
-            <p class="plan-desc">For destination stores</p>
-            <ul class="plan-features">
-              <li>Covered by the master store’s plan</li>
-            </ul>
-            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Install</a>
-          </div>
+        <div class="grid grid-3 pricing-grid">
           <div class="plan reveal">
             
             <h3>Starter</h3>
+            <p class="plan-desc">For a master store and a couple of destination stores</p>
             <p class="plan-price">$24 <small>/ month</small></p>
-            <p class="plan-desc">15-day free trial</p>
-            <ul class="plan-features">
+            <ul class="plan-features plan-features--limits">
               <li>Up to 5 connected stores</li>
               <li>300 products · 1,500 variants</li>
               <li>5 mapped locations per store</li>
-              <li>25,000 History entries</li>
+              <li>25,000 Inventory History entries</li>
             </ul>
-            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Install</a>
+            <ul class="plan-features">
+              <li>Real-time inventory sync from your master store</li>
+              <li>Product and category metafields, including their definitions</li>
+              <li>Auto-match and link products that already exist on a store</li>
+              <li>Unlimited order sync, cancellations restocked automatically</li>
+              <li>Per-store control over which product fields sync</li>
+              <li>Email &amp; live chat support</li>
+            </ul>
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Start 15-day free trial</a>
           </div>
           <div class="plan plan--featured reveal">
             <span class="plan-tag">Most popular</span>
             <h3>Growth</h3>
+            <p class="plan-desc">For growing brands running several storefronts</p>
             <p class="plan-price">$47 <small>/ month</small></p>
-            <p class="plan-desc">15-day free trial</p>
-            <ul class="plan-features">
+            <ul class="plan-features plan-features--limits">
               <li>Up to 10 connected stores</li>
               <li>1,500 products · 7,500 variants</li>
               <li>10 mapped locations per store</li>
-              <li>150,000 History entries</li>
+              <li>150,000 Inventory History entries</li>
             </ul>
-            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-primary btn-block" target="_blank" rel="noopener">Install</a>
+            <ul class="plan-features">
+              <li>Real-time inventory sync from your master store</li>
+              <li>Product and category metafields, including their definitions</li>
+              <li>Auto-match and link products that already exist on a store</li>
+              <li>Unlimited order sync, cancellations restocked automatically</li>
+              <li>Per-store control over which product fields sync</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-primary btn-block" target="_blank" rel="noopener">Start 15-day free trial</a>
           </div>
           <div class="plan reveal">
             
             <h3>Scale</h3>
+            <p class="plan-desc">For multi-brand operators with many stores</p>
             <p class="plan-price">$79 <small>/ month</small></p>
-            <p class="plan-desc">15-day free trial</p>
-            <ul class="plan-features">
+            <ul class="plan-features plan-features--limits">
               <li>Up to 25 connected stores</li>
               <li>5,000 products · 25,000 variants</li>
               <li>25 mapped locations per store</li>
-              <li>750,000 History entries</li>
+              <li>750,000 Inventory History entries</li>
             </ul>
-            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Install</a>
+            <ul class="plan-features">
+              <li>Real-time inventory sync from your master store</li>
+              <li>Product and category metafields, including their definitions</li>
+              <li>Auto-match and link products that already exist on a store</li>
+              <li>Unlimited order sync, cancellations restocked automatically</li>
+              <li>Per-store control over which product fields sync</li>
+              <li>Priority support</li>
+              <li>Guided setup for new stores</li>
+            </ul>
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Start 15-day free trial</a>
           </div>
         </div>
-        <p class="pricing-note">Prices in USD, billed by Shopify every 30 days. Need more than 25 stores? <a href="#" data-chat-open>Contact us</a>.</p>
+
+        <div class="enterprise-band reveal">
+          <div>
+            <h3>Need more than 25 stores?</h3>
+            <p>Enterprise plans come with custom store, product and order volumes, plus a dedicated onboarding session.</p>
+          </div>
+          <a href="#" class="btn btn-light" data-chat-open>Contact us for Enterprise pricing</a>
+        </div>
+
+        <div class="included-box reveal">
+          <h3>Also included on every plan</h3>
+          <ul class="plan-features plan-features--cols">
+            <li>Review or hand-pick every match before products are linked, and unlink any time</li>
+            <li>Map each destination location to a master location</li>
+            <li>Inventory History log of every stock movement</li>
+            <li>Catalog Scan &amp; Repair for anything that drifted</li>
+            <li>System health page flagging syncs that need attention</li>
+          </ul>
+        </div>
+
+        <p class="pricing-note">Prices in USD, billed by Shopify every 30 days. <a href="https://hubstock-multi-store-sync.gadget.app/privacy" target="_blank" rel="noopener">HubStock privacy policy</a></p>
       </div>
     </section>
 
@@ -390,7 +435,11 @@
           </details>
           <details class="faq-item">
             <summary>Do destination stores pay too?</summary>
-            <p>No. Destination stores use the Free plan; they are covered by the master store’s plan.</p>
+            <p>No. Only the master store is billed; every destination store is covered by the master store’s plan.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What if I need more than 25 stores?</summary>
+            <p>Enterprise plans come with custom store, product and order volumes, plus a dedicated onboarding session. Contact us and we will put a quote together.</p>
           </details>
           <details class="faq-item">
             <summary>Is there a free trial?</summary>
@@ -427,7 +476,7 @@
         </svg>
           <span>NDTify</span>
         </a>
-        <p>Independent studio building websites, web apps, WordPress plugins and Shopify apps, plus the integrations that connect them.</p>
+        <p>Independent developer building websites, web apps, WordPress plugins and Shopify apps since 2014, plus the integrations that connect them.</p>
         <address>
           <a href="mailto:support@ndtify.com">support@ndtify.com</a><br>
           <a href="#" data-chat-open>Live chat</a>
@@ -462,6 +511,7 @@
         <h3>Company</h3>
         <ul>
           <li><a href="/work/">All projects</a></li>
+          <li><a href="/#about">About</a></li>
           <li><a href="/#process">How we work</a></li>
           <li><a href="/#faq">FAQ</a></li>
           <li><a href="https://apps.shopify.com/partners/ndtify" rel="noopener" target="_blank">Shopify App Store</a></li>
@@ -471,7 +521,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <p>© <span id="year">2026</span> NDTify. All rights reserved.</p>
+      <p>© <span id="year">2026</span> NDTify. All rights reserved. · <a href="/privacy/">Privacy policy</a></p>
       <p>Shopify app developer · WordPress &amp; WooCommerce builds</p>
     </div>
   </footer>

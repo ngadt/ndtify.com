@@ -126,6 +126,7 @@ export function caseStudy(p) {
               <dt>Industry</dt><dd>${esc(p.industry)}</dd>
               <dt>Location</dt><dd>${esc(p.location)}</dd>
               <dt>What we did</dt><dd><ul class="tag-list">${p.services.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></dd>
+              ${p.performance ? `<dt>Performance</dt><dd>${esc(p.performance)}</dd>` : ''}
               <dt>Stack</dt><dd><ul class="tag-list tag-list--muted">${p.stack.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></dd>
               <dt>Live site</dt><dd>${links.map((l) => `<a href="${l.url}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('<br>')}</dd>
             </dl>

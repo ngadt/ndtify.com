@@ -492,11 +492,7 @@ a.float-card:hover strong { color: var(--brand); }
 .app-shots figure { margin: 0; }
 .app-shots img { border-radius: 16px; box-shadow: var(--shadow); width: 100%; }
 .app-shots figcaption { text-align: center; color: var(--muted); margin-top: 14px; font-weight: 500; }
-.pricing-grid.grid-4 .plan { padding: 30px 24px; }
-.pricing-grid.grid-4 .plan-desc { min-height: 0; }
 .pricing-note a { color: var(--brand); font-weight: 600; }
-@media (max-width: 1024px) { .pricing-grid.grid-4 { grid-template-columns: repeat(2, 1fr); max-width: none; } }
-@media (max-width: 640px) { .pricing-grid.grid-4 { grid-template-columns: 1fr; } }
 
 /* ---------- CTA actions ---------- */
 .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
@@ -583,3 +579,38 @@ a.float-card:hover strong { color: var(--brand); }
   .contact-aside { position: static; padding-top: 0; }
 }
 @media (max-width: 640px) { .field-row { grid-template-columns: 1fr; } .form-foot .btn { width: 100%; } }
+
+/* ---------- About section ---------- */
+.about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.about-grid h2 { margin-bottom: 18px; }
+.about-lead { font-size: 1.125rem; color: var(--ink-2); margin-bottom: 14px; }
+.about-grid p:not(.kicker):not(.about-lead) { color: var(--muted); }
+.about-grid .hero-cta { margin-top: 26px; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.about-stats li { padding: 24px 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
+.about-stats strong { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.about-stats span { display: block; margin-top: 6px; font-size: .9rem; color: var(--muted); }
+@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .about-stats { grid-template-columns: 1fr; } }
+
+/* ---------- Legal pages ---------- */
+.legal { max-width: none; }
+.legal h2 { font-size: 1.375rem; }
+.legal ul { display: grid; gap: 10px; padding-left: 22px; list-style: disc; margin: 14px 0; }
+.legal li { color: var(--ink-2); }
+.legal a { color: var(--brand); font-weight: 600; }
+.footer-bottom a:hover { color: #fff; }
+.form-note a { color: var(--brand); font-weight: 600; }
+
+/* ---------- HubStock pricing extras ---------- */
+.plan-features--limits { padding-bottom: 14px; margin-bottom: 0; border-bottom: 1px solid var(--border); flex: none; }
+.plan-features--limits li { font-weight: 600; }
+.plan--featured .plan-features--limits { border-color: rgba(255, 255, 255, .12); }
+.plan-features--limits + .plan-features { margin-top: 0; }
+.enterprise-band { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; margin-top: 28px; padding: 26px 30px; border-radius: 20px; background: var(--bg-dark); color: #fff; }
+.enterprise-band h3 { color: #fff; margin-bottom: 4px; }
+.enterprise-band p { color: var(--on-dark-muted); font-size: .9375rem; max-width: 560px; }
+.included-box { margin-top: 20px; padding: 26px 30px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); }
+.included-box h3 { margin-bottom: 16px; }
+.plan-features--cols { grid-template-columns: 1fr 1fr; gap: 12px 32px; margin: 0; }
+@media (max-width: 760px) { .plan-features--cols { grid-template-columns: 1fr; } .enterprise-band .btn { width: 100%; } }
