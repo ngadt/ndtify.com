@@ -34,9 +34,9 @@ export function hubstock() {
   const paid = H.plans.filter((p) => p.price !== '0');
   return {
     path: '/apps/hubstock/',
-    title: 'HubStock: Multi-Store Inventory & Order Sync for Shopify | NDTify',
+    title: 'HubStock: Multi-Store Sync for Shopify | NDTify',
     description:
-      'HubStock syncs inventory, products and orders across multiple Shopify stores in real time from one master store. Match by SKU, per-field sync, location mapping and History log. 15-day free trial.',
+      'HubStock syncs inventory, products and orders across multiple Shopify stores in real time from one master store. SKU matching, location mapping, 15-day trial.',
     ogImage: H.image.src,
     preload: H.image.src,
     schema: [

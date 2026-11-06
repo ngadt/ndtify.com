@@ -34,7 +34,7 @@ export function contact() {
   ];
   return {
     path: '/contact/',
-    title: 'Start a Project: Get a Quote for Your Website, App or Plugin | NDTify',
+    title: 'Start a Project: Get a Quote | NDTify',
     description:
       'Tell NDTify about your website, web app, WordPress plugin, Shopify app or integration. Send a short brief and get a reply from the developer who will build it.',
     schema: [
@@ -132,7 +132,7 @@ export function contact() {
         </div>
 
         <aside class="contact-aside">
-          <h2>What happens next</h2>
+          <h2>After you hit send</h2>
           <ol class="next-steps">
             <li><strong>We read your brief</strong><span>A developer, not a salesperson, reads every request.</span></li>
             <li><strong>We reply with questions</strong><span>Usually a few short ones, by email or a quick call.</span></li>

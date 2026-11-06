@@ -89,9 +89,9 @@ export function services() {
   ];
   return {
     path: '/services/',
-    title: 'Web Development Services: WordPress, Shopify Apps, Web Apps & Integrations | NDTify',
+    title: 'Websites, Web Apps, Plugins & Shopify Apps | NDTify',
     description:
-      'Custom websites, WooCommerce and Shopify stores, web apps and calculators, WordPress plugins, Shopify apps and API integrations, built by NDTify for businesses in Vietnam, Singapore, Korea and beyond.',
+      'Custom websites, WooCommerce and Shopify stores, web apps, WordPress plugins, Shopify apps and API integrations for businesses in Vietnam, Singapore and beyond.',
     schema: [
       breadcrumb(trail),
       {

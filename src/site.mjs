@@ -45,6 +45,7 @@ export const ORGANIZATION = {
   description:
     'NDTify is a web and app development studio building custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps.',
   sameAs: [SITE.shopifyPartner],
+  contactPoint: { '@type': 'ContactPoint', contactType: 'sales', email: SITE.email, availableLanguage: ['English', 'Vietnamese'], url: `${SITE.url}/contact/` },
 };
 
 export function breadcrumb(items) {
@@ -151,7 +152,7 @@ function footer(projects) {
 
     <div class="container footer-bottom">
       <p>© <span id="year">2026</span> NDTify. All rights reserved.</p>
-      <p>Built by hand: plain HTML, CSS and a little JavaScript.</p>
+      <p>Shopify app developer · WordPress &amp; WooCommerce builds</p>
     </div>
   </footer>`;
 }
@@ -167,7 +168,7 @@ const CHAT = `<!-- ===== NDTify live chat (self-hosted, agents reply from Telegr
       offlineGreeting: 'We are away right now, but leave a message with your project details and we will get back to you as soon as we are back.'
     };
   </script>
-  <script src="/js/chat-widget.js?v=20261106" defer></script>`;
+  <script src="/js/chat-widget.js?v=20261106b" defer></script>`;
 
 /**
  * Render a full HTML document.
@@ -214,6 +215,7 @@ export function render(o) {
   <meta name="twitter:image" content="${og}">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">

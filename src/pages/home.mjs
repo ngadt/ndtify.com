@@ -79,9 +79,9 @@ export function faqSchema() {
 export function home() {
   return {
     path: '/',
-    title: 'NDTify: Web Development Studio for Websites, Web Apps, WordPress Plugins & Shopify Apps',
+    title: 'NDTify: Websites, Web Apps, WordPress & Shopify Apps',
     description:
-      'NDTify builds custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps, and connects them to the tools you already use. See our work and start a project.',
+      'NDTify builds custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps, and connects them to the tools you already use.',
     preload: '/images/hero-mockup.webp',
     schema: [
       {

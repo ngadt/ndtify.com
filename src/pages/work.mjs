@@ -9,9 +9,9 @@ export function workIndex() {
   ];
   return {
     path: '/work/',
-    title: 'Our Work: Website, Shopify & Web App Case Studies | NDTify',
+    title: 'Case Studies: Websites, Stores & Apps | NDTify',
     description:
-      'Case studies from NDTify: custom WordPress and WooCommerce sites, multi-market Shopify stores, interactive web tools and our own Shopify app, built for businesses in Vietnam, Singapore and South Korea.',
+      'Case studies from NDTify: custom WordPress and WooCommerce sites, multi-market Shopify stores, interactive web tools and our own Shopify app, HubStock.',
     schema: [
       breadcrumb(trail),
       {

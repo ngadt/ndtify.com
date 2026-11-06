@@ -565,7 +565,8 @@ a.float-card:hover strong { color: var(--brand); }
 .form-status--ok p { color: var(--muted); max-width: 460px; margin-inline: auto; }
 .form-status--ok a { color: var(--brand); font-weight: 600; }
 
-.contact-aside { position: sticky; top: 96px; padding-top: clamp(56px, 4vw, 32px); }
+/* The grid is pulled up into the dark hero by clamp(32px, 4vw, 56px); clear that, then add breathing room */
+.contact-aside { position: sticky; top: 96px; padding-top: calc(clamp(32px, 4vw, 56px) + 40px); }
 .contact-aside h2 { font-size: 1.25rem; margin-bottom: 18px; }
 .next-steps { counter-reset: step; display: grid; gap: 18px; margin-bottom: 32px; }
 .next-steps li { counter-increment: step; position: relative; padding-left: 46px; }

@@ -142,7 +142,7 @@
           '<textarea id="ndt-input" rows="1" placeholder="Type your message…" maxlength="2000" autocomplete="off"></textarea>' +
           '<button type="submit" class="ndt-send" aria-label="Send message" disabled>' + ICONS.send + '</button>' +
         '</form>' +
-        '<div class="ndt-footer">Live chat by <a href="#top">' + esc(CFG.title.split(' ')[0]) + '</a></div>' +
+        '<div class="ndt-footer">Live chat by <a href="/">' + esc(CFG.title.split(' ')[0]) + '</a></div>' +
       '</div>' +
       '<button type="button" class="ndt-launcher" aria-label="Open live chat" aria-expanded="false">' +
         '<span class="ndt-ic-chat">' + ICONS.chat + '</span><span class="ndt-ic-close">' + ICONS.close + '</span>' +
