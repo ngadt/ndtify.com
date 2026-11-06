@@ -28,7 +28,7 @@ export function workIndex() {
       <div class="container">
         ${crumbs(trail)}
         <h1>Our work</h1>
-        <p class="lead">Live projects for real businesses: solar installers, industrial repair workshops, a fashion brand in two countries, an organic farm and a 50-year-old tyre shop. Each one is built around what its customers need to do.</p>
+        <p class="lead">Our most recent launches, all live today: solar installers, industrial repair workshops, a fashion brand in two countries, an organic farm and a 50-year-old tyre shop. Each one is built around what its customers need to do.</p>
       </div>
     </section>
 

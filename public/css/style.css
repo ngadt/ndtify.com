@@ -585,6 +585,8 @@ a.float-card:hover strong { color: var(--brand); }
 .about-grid h2 { margin-bottom: 18px; }
 .about-lead { font-size: 1.125rem; color: var(--ink-2); margin-bottom: 14px; }
 .about-grid p:not(.kicker):not(.about-lead) { color: var(--muted); }
+.about-grid p a { color: var(--brand); font-weight: 600; }
+.about-grid p + p { margin-top: 12px; }
 .about-grid .hero-cta { margin-top: 26px; }
 .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .about-stats li { padding: 24px 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
