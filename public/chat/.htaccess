@@ -1,0 +1,5 @@
+# NDTify live chat – protect secrets & internals (only api/webhook/file/setup/pull are entry points)
+<FilesMatch "^(\.env\.local|config\.php|lib\.php|handler\.php)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

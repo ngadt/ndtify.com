@@ -1,0 +1,13 @@
+# Secrets (Telegram bot token etc.) – see public/chat/.env.example
+.env.local
+**/.env.local
+
+# Runtime data from the live chat / contact form (SQLite DB, logs)
+public/chat/data/*
+!public/chat/data/.htaccess
+
+# Old deploy archives (contain a copy of config.php with secrets)
+*.zip
+
+.DS_Store
+node_modules/

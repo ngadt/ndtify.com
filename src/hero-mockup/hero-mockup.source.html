@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Source for /images/hero-mockup.webp. Render at 1200x900:
+     laptop.webp = desktop screenshot (Ba Phong farm), phone.webp = 390px mobile screenshot (KEB Vietnam). -->
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 900px; overflow: hidden; }
+  body { font-family: Inter, system-ui, sans-serif; position: relative; background: #0b1020; }
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(55% 55% at 30% 25%, rgba(99,102,241,.55), transparent 65%),
+      radial-gradient(50% 50% at 85% 75%, rgba(34,211,238,.35), transparent 65%),
+      radial-gradient(40% 40% at 60% 100%, rgba(168,85,247,.35), transparent 65%),
+      linear-gradient(160deg, #141a3a 0%, #0b1020 60%);
+  }
+  .bg::after {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(65% 65% at 50% 50%, #000, transparent);
+  }
+  .glow { position: absolute; left: 180px; top: 200px; width: 840px; height: 460px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(99,102,241,.45), transparent); filter: blur(40px); }
+
+  /* Laptop */
+  .laptop { position: absolute; left: 110px; top: 118px; width: 860px; }
+  .screen { width: 860px; height: 540px; border-radius: 22px 22px 0 0; background: #0f1225; padding: 14px 14px 0;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08); position: relative; }
+  .screen::before { content: ""; position: absolute; top: 5px; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #1e2340; transform: translateX(-50%); }
+  .display { width: 100%; height: 100%; border-radius: 10px 10px 0 0; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+  .base { height: 22px; background: linear-gradient(#2a2f4f, #171b33); border-radius: 0 0 24px 24px; position: relative; box-shadow: 0 30px 50px -20px rgba(0,0,0,.8); }
+  .base::before { content: ""; position: absolute; left: 50%; top: 0; width: 140px; height: 6px; transform: translateX(-50%); background: #0b0e1c; border-radius: 0 0 8px 8px; }
+  .chrome { flex: none; height: 30px; background: #f3f4f8; border-bottom: 1px solid #e6e8f0; display: flex; align-items: center; padding: 0 12px; gap: 6px; }
+  .chrome i { width: 9px; height: 9px; border-radius: 50%; display: block; }
+  .chrome .url { margin-left: 12px; width: 260px; height: 18px; border-radius: 6px; background: #fff; border: 1px solid #e6e8f0; font-size: 9.5px; color: #64748b; display: flex; align-items: center; padding-left: 8px; }
+  .shot { flex: 1; min-height: 0; background: url(laptop.webp) center top / cover no-repeat; }
+
+  /* Phone */
+  .phone { position: absolute; right: 118px; bottom: 96px; width: 214px; height: 440px; border-radius: 34px; background: #0f1225; padding: 10px;
+    box-shadow: 0 50px 80px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1), inset 0 0 0 2px #1e2340; transform: rotate(-4deg); }
+  .phone::before { content: ""; position: absolute; top: 16px; left: 50%; width: 64px; height: 18px; border-radius: 999px; background: #0f1225; transform: translateX(-50%); z-index: 2; }
+  .pscreen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #fff url(phone.webp) center top / 100% auto no-repeat; position: relative; }
+  .pscreen::before { content: ""; display: block; height: 30px; background: #fff; } /* status-bar strip */
+  .pscreen { background-position: center 30px; }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="glow"></div>
+  <div class="laptop">
+    <div class="screen">
+      <div class="display">
+        <div class="chrome">
+          <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+          <div class="url">🔒 vuondautambaphong.com</div>
+        </div>
+        <div class="shot"></div>
+      </div>
+    </div>
+    <div class="base"></div>
+  </div>
+  <div class="phone"><div class="pscreen"></div></div>
+</body>
+</html>

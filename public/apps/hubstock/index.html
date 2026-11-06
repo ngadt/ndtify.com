@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HubStock: Multi-Store Inventory &amp; Order Sync for Shopify | NDTify</title>
+  <meta name="description" content="HubStock syncs inventory, products and orders across multiple Shopify stores in real time from one master store. Match by SKU, per-field sync, location mapping and History log. 15-day free trial.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ndtify.com/apps/hubstock/">
+  <meta name="theme-color" content="#0b1020">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="NDTify">
+  <meta property="og:url" content="https://ndtify.com/apps/hubstock/">
+  <meta property="og:title" content="HubStock: Multi-Store Inventory &amp; Order Sync for Shopify | NDTify">
+  <meta property="og:description" content="HubStock syncs inventory, products and orders across multiple Shopify stores in real time from one master store. Match by SKU, per-field sync, location mapping and History log. 15-day free trial.">
+  <meta property="og:image" content="https://ndtify.com/images/hubstock/promo.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HubStock: Multi-Store Inventory &amp; Order Sync for Shopify | NDTify">
+  <meta name="twitter:description" content="HubStock syncs inventory, products and orders across multiple Shopify stores in real time from one master store. Match by SKU, per-field sync, location mapping and History log. 15-day free trial.">
+  <meta name="twitter:image" content="https://ndtify.com/images/hubstock/promo.webp">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/images/hubstock/promo.webp" fetchpriority="high">
+  <link rel="stylesheet" href="/css/style.css?v=20261106">
+  <link rel="stylesheet" href="/css/chat-widget.css?v=20261106">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ndtify.com/#organization",
+      "name": "NDTify",
+      "url": "https://ndtify.com/",
+      "logo": "https://ndtify.com/images/logo.png",
+      "email": "support@ndtify.com",
+      "description": "NDTify is a web and app development studio building custom websites, web apps, WordPress plugins, WooCommerce stores and Shopify apps.",
+      "sameAs": [
+        "https://apps.shopify.com/partners/ndtify"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ndtify.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "HubStock",
+          "item": "https://ndtify.com/apps/hubstock/"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://ndtify.com/apps/hubstock/#app",
+      "name": "HubStock ‑ Multi‑Store Sync",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Shopify app: inventory sync",
+      "operatingSystem": "Shopify",
+      "url": "https://ndtify.com/apps/hubstock/",
+      "installUrl": "https://apps.shopify.com/hubstock-multi-store-sync",
+      "image": "https://ndtify.com/images/hubstock/promo.webp",
+      "screenshot": [
+        "https://ndtify.com/images/hubstock/shot-1.webp",
+        "https://ndtify.com/images/hubstock/shot-2.webp",
+        "https://ndtify.com/images/hubstock/shot-3.webp"
+      ],
+      "description": "Our own Shopify app. One master store owns the stock and every connected store mirrors it in real time, including inventory, products and orders.",
+      "featureList": [
+        "Real-time inventory sync",
+        "Orders deduct master stock",
+        "Match by SKU, no duplicates",
+        "Per-field product sync",
+        "Metafields & definitions",
+        "Location mapping",
+        "History, scan & repair",
+        "Low-stock alerts"
+      ],
+      "publisher": {
+        "@id": "https://ndtify.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "0",
+        "highPrice": "79",
+        "offerCount": 4
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which store holds the stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The master store. Destination stores mirror its inventory and are locked to it, so stock is only ever edited in one place."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will HubStock duplicate products that already exist on my other store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It matches products by SKU (then handle or title) and links them. Anything uncertain waits for your review, and you can link in bulk or one product at a time with variant control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when an order is cancelled on a connected store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The stock that was deducted from the master is restored automatically, and the movement is recorded in the History log."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do destination stores pay too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Destination stores use the Free plan; they are covered by the master store’s plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every paid plan includes a 15-day free trial."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="/" class="logo" aria-label="NDTify – Home">
+        <svg class="logo-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="url(#logoGrad)"/>
+          <path d="M9 22V10l6 8V10h3v12l-6-8v8H9z" fill="#fff"/>
+          <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+        </svg>
+        <span>NDTify</span>
+      </a>
+
+      <nav class="site-nav" id="nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/apps/hubstock/" aria-current="page" class="is-active">HubStock</a></li>
+          <li><a href="/#process">Process</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/contact/" class="btn btn-primary">Start a project</a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero hero--app">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">HubStock</li></ol></nav>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow"><img src="/images/hubstock/icon.webp" width="24" height="24" alt="" class="eyebrow-icon"> Shopify app by NDTify</p>
+          <h1>One master store.<br><span class="grad-text">Every store in&nbsp;sync.</span></h1>
+          <p class="lead">HubStock keeps inventory, products and orders in sync across all your Shopify stores in real time. Stock lives on the master only, so two storefronts never fight over the same number.</p>
+          <div class="hero-cta">
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Install on Shopify ↗</a>
+            <a href="#pricing" class="btn btn-outline btn-lg">See pricing</a>
+          </div>
+          <ul class="hero-trust">
+            <li>✓ Free plan for destination stores</li>
+            <li>✓ 15-day free trial</li>
+            <li>✓ Email &amp; live chat support</li>
+          </ul>
+        </div>
+        <figure class="hero-visual">
+          <img src="/images/hubstock/promo.webp" width="1600" height="900" alt="HubStock promo: one master store keeping three connected Shopify stores in sync" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">How it works</p>
+          <h2>Add a second store in about a minute</h2>
+        </header>
+        <ol class="steps-list steps-list--light">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <h3>Import your catalog</h3>
+            <p>Install HubStock on the store that owns your stock. It becomes the master.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">02</span>
+            <h3>Connect a store</h3>
+            <p>Install from the same browser and the stores link themselves, or hand a pairing code to whoever runs the other store. No API keys, no CSV files.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">03</span>
+            <h3>Map &amp; sync</h3>
+            <p>Map locations, match existing products by SKU and pick which fields sync. From then on stock and orders flow automatically.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section bg-soft">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Features</p>
+          <h2>Everything multi-store sellers need to stop overselling</h2>
+        </header>
+        <div class="grid grid-4">
+          <div class="feature feature--card reveal">
+            <h3>Real-time inventory sync</h3>
+            <p>Stock lives on one master store. Every connected store mirrors it automatically, so two storefronts never fight over the same number.</p>
+          </div>
+          <div class="feature feature--card reveal">
+            <h3>Orders deduct master stock</h3>
+            <p>An order on any connected store deducts stock on the master at the milestone you choose (paid or fulfilled). Cancellations restore it.</p>
+          </div>
+          <div class="feature feature--card reveal">
+            <h3>Match by SKU, no duplicates</h3>
+            <p>Already selling on the other store? HubStock matches products by SKU, handle or title and links them instead of creating copies. Uncertain matches wait for your review.</p>
+          </div>
+          <div class="feature feature--card reveal">
+            <h3>Per-field product sync</h3>
+            <p>Choose exactly what travels to each store: title, images, price, compare-at price, SKU, barcode, tags, vendor and more. Set global defaults, then override per store.</p>
+          </div>
+          <div class="feature feature--card reveal">
+            <h3>Metafields &amp; definitions</h3>
+            <p>Product and category metafields sync along with their definitions, so structured data arrives intact.</p>
+          </div>
+          <div class="feature feature--card reveal">
+            <h3>Location mapping</h3>
+            <p>Map master locations to each destination store’s locations so stock lands in the right place.</p>
+          </div>
+          <div class="feature feature--card reveal">
+            <h3>History, scan &amp; repair</h3>
+            <p>Every stock movement lands in a searchable History log, and Scan &amp; Repair plus a Health view catch anything that has drifted.</p>
+          </div>
+          <div class="feature feature--card reveal">
+            <h3>Low-stock alerts</h3>
+            <p>Get notified when inventory drops below your own threshold.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Screenshots</p>
+          <h2>See it in action</h2>
+        </header>
+        <div class="app-shots">
+          <figure><img src="/images/hubstock/shot-1.webp" width="1600" height="900" loading="lazy" alt="HubStock review matches screen linking existing products by SKU instead of duplicating them"><figcaption>Link what the other store already has, with no duplicates</figcaption></figure>
+          <figure><img src="/images/hubstock/shot-2.webp" width="1600" height="900" loading="lazy" alt="HubStock settings for per-field product sync, order sync and low-stock alerts"><figcaption>Decide exactly what syncs to each store</figcaption></figure>
+          <figure><img src="/images/hubstock/shot-3.webp" width="1600" height="900" loading="lazy" alt="HubStock store pairing setup with a pairing code and connected stores list"><figcaption>Pair a new store with a one-time code</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing bg-soft" id="pricing">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Pricing</p>
+          <h2>Pay on the master store only</h2>
+          <p>Destination stores are free. All paid plans include real-time inventory &amp; order sync, SKU matching, metafield sync and email &amp; live chat support.</p>
+        </header>
+        <div class="grid grid-4 pricing-grid">
+          <div class="plan reveal">
+            
+            <h3>Free</h3>
+            <p class="plan-price">$0 <small>/ month</small></p>
+            <p class="plan-desc">For destination stores</p>
+            <ul class="plan-features">
+              <li>Covered by the master store’s plan</li>
+            </ul>
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Install</a>
+          </div>
+          <div class="plan reveal">
+            
+            <h3>Starter</h3>
+            <p class="plan-price">$24 <small>/ month</small></p>
+            <p class="plan-desc">15-day free trial</p>
+            <ul class="plan-features">
+              <li>Up to 5 connected stores</li>
+              <li>300 products · 1,500 variants</li>
+              <li>5 mapped locations per store</li>
+              <li>25,000 History entries</li>
+            </ul>
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Install</a>
+          </div>
+          <div class="plan plan--featured reveal">
+            <span class="plan-tag">Most popular</span>
+            <h3>Growth</h3>
+            <p class="plan-price">$47 <small>/ month</small></p>
+            <p class="plan-desc">15-day free trial</p>
+            <ul class="plan-features">
+              <li>Up to 10 connected stores</li>
+              <li>1,500 products · 7,500 variants</li>
+              <li>10 mapped locations per store</li>
+              <li>150,000 History entries</li>
+            </ul>
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-primary btn-block" target="_blank" rel="noopener">Install</a>
+          </div>
+          <div class="plan reveal">
+            
+            <h3>Scale</h3>
+            <p class="plan-price">$79 <small>/ month</small></p>
+            <p class="plan-desc">15-day free trial</p>
+            <ul class="plan-features">
+              <li>Up to 25 connected stores</li>
+              <li>5,000 products · 25,000 variants</li>
+              <li>25 mapped locations per store</li>
+              <li>750,000 History entries</li>
+            </ul>
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-outline-dark btn-block" target="_blank" rel="noopener">Install</a>
+          </div>
+        </div>
+        <p class="pricing-note">Prices in USD, billed by Shopify every 30 days. Need more than 25 stores? <a href="#" data-chat-open>Contact us</a>.</p>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="container container--narrow">
+        <header class="section-head">
+          <p class="kicker">FAQ</p>
+          <h2>HubStock questions</h2>
+        </header>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Which store holds the stock?</summary>
+            <p>The master store. Destination stores mirror its inventory and are locked to it, so stock is only ever edited in one place.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Will HubStock duplicate products that already exist on my other store?</summary>
+            <p>No. It matches products by SKU (then handle or title) and links them. Anything uncertain waits for your review, and you can link in bulk or one product at a time with variant control.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What happens when an order is cancelled on a connected store?</summary>
+            <p>The stock that was deducted from the master is restored automatically, and the movement is recorded in the History log.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do destination stores pay too?</summary>
+            <p>No. Destination stores use the Free plan; they are covered by the master store’s plan.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is there a free trial?</summary>
+            <p>Yes. Every paid plan includes a 15-day free trial.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" id="contact">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div>
+            <h2>Ready to sync your stores?</h2>
+            <p>Install HubStock from the Shopify App Store and start your 15-day free trial. Questions first? Chat with the developers who built it.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="https://apps.shopify.com/hubstock-multi-store-sync" class="btn btn-light btn-lg" target="_blank" rel="noopener">Install on Shopify ↗</a>
+            <a href="#" class="btn btn-outline btn-lg" data-chat-open>Ask a question</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg class="logo-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="url(#logoGradFoot)"/>
+          <path d="M9 22V10l6 8V10h3v12l-6-8v8H9z" fill="#fff"/>
+          <defs><linearGradient id="logoGradFoot" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+        </svg>
+          <span>NDTify</span>
+        </a>
+        <p>Independent studio building websites, web apps, WordPress plugins and Shopify apps, plus the integrations that connect them.</p>
+        <address>
+          <a href="mailto:support@ndtify.com">support@ndtify.com</a><br>
+          <a href="#" data-chat-open>Live chat</a>
+        </address>
+      </div>
+
+      <nav aria-label="Services">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/services/#websites">Websites</a></li>
+          <li><a href="/services/#web-apps">Web apps &amp; tools</a></li>
+          <li><a href="/services/#wordpress-plugins">WordPress plugins</a></li>
+          <li><a href="/services/#shopify-apps">Shopify apps</a></li>
+          <li><a href="/services/#integrations">Integrations</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Work">
+        <h3>Work</h3>
+        <ul>
+          <li><a href="/work/lithaco/">LITHACO</a></li>
+          <li><a href="/work/ariseo/">ARISEO</a></li>
+          <li><a href="/work/keb-vietnam/">KEB Vietnam</a></li>
+          <li><a href="/work/vuon-dau-tam-ba-phong/">Ba Phong Mulberry Farm</a></li>
+          <li><a href="/work/hitech-vina-drive-repair/">Hitech Vina Drive Repair</a></li>
+          <li><a href="/work/kim-hoe-tyres/">Kim Hoe &amp; Co</a></li>
+          <li><a href="/apps/hubstock/">HubStock for Shopify</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/work/">All projects</a></li>
+          <li><a href="/#process">How we work</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="https://apps.shopify.com/partners/ndtify" rel="noopener" target="_blank">Shopify App Store</a></li>
+          <li><a href="/contact/">Start a project</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> NDTify. All rights reserved.</p>
+      <p>Built by hand: plain HTML, CSS and a little JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js?v=20261106" defer></script>
+  
+
+  <!-- ===== NDTify live chat (self-hosted, agents reply from Telegram) =====
+       Backend lives in /chat (PHP + SQLite). Configure chat/config.php, then open
+       /chat/setup.php?key=… once to register the Telegram webhook. -->
+  <script>
+    window.NDT_CHAT = {
+      endpoint: '/chat/api.php',
+      title: 'NDTify',
+      greeting: 'Hi there 👋 Tell us a bit about your project (website, app, plugin or integration) and a developer will reply right here.',
+      offlineGreeting: 'We are away right now, but leave a message with your project details and we will get back to you as soon as we are back.'
+    };
+  </script>
+  <script src="/js/chat-widget.js?v=20261106" defer></script>
+</body>
+</html>
