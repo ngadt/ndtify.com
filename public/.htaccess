@@ -5,12 +5,18 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
+# NOTE: public_html is shared with other sites' document roots, so every rewrite
+# below is limited to the ndtify.com host.
+
 # Canonical URLs: /index.html -> /  and  /work/x/index.html -> /work/x/
+RewriteCond %{HTTP_HOST} ^(www\.)?ndtify\.com$ [NC]
 RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
 RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
 
 # Old one-page anchors that people may have bookmarked
+RewriteCond %{HTTP_HOST} ^(www\.)?ndtify\.com$ [NC]
 RewriteRule ^products/?$ /work/ [R=301,L]
+RewriteCond %{HTTP_HOST} ^(www\.)?ndtify\.com$ [NC]
 RewriteRule ^pricing/?$ /services/ [R=301,L]
 
 # Custom 404 page
