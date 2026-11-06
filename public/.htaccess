@@ -5,6 +5,10 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
+# www.ndtify.com -> ndtify.com (canonical host)
+RewriteCond %{HTTP_HOST} ^www\.ndtify\.com$ [NC]
+RewriteRule ^(.*)$ https://ndtify.com/$1 [R=301,L]
+
 # NOTE: public_html is shared with other sites' document roots, so every rewrite
 # below is limited to the ndtify.com host.
 
